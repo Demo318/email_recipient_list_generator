@@ -48,8 +48,3 @@ df_it_list.to_csv('.\contact_lists\it_contact_list.csv', sep=',', encoding='utf=
 df_voice_list.to_csv('.\contact_lists\\voice_contact_list.csv', sep=',', encoding='utf=8')
 df_wf_and_pp_list.to_csv('.\contact_lists\wf_and_pp_contact_list.csv', sep=',', encoding='utf=8')
 
-
-
-# Export .csv
-
-# Convert .csv to .mdb
