@@ -39,8 +39,14 @@ for index, row in master_contact_list.iterrows():
     
 
 df_cp_list = pandas.DataFrame.from_dict(cp_list)
+df_it_list = pandas.DataFrame.from_dict(it_list)
+df_voice_list = pandas.DataFrame.from_dict(voice_list)
+df_wf_and_pp_list = pandas.DataFrame.from_dict(wf_and_pp_list)
 
-df_cp_list.to_csv(".\CP\cp_contact_list.csv", sep=',', encoding='utf=8')
+df_cp_list.to_csv('.\contact_lists\cp_contact_list.csv', sep=',', encoding='utf=8')
+df_it_list.to_csv('.\contact_lists\it_contact_list.csv', sep=',', encoding='utf=8')
+df_voice_list.to_csv('.\contact_lists\\voice_contact_list.csv', sep=',', encoding='utf=8')
+df_wf_and_pp_list.to_csv('.\contact_lists\wf_and_pp_contact_list.csv', sep=',', encoding='utf=8')
 
 
 
