@@ -34,7 +34,13 @@ for index, row in master_contact_list.iterrows():
         add_to_sub_contact_list(row, voice_list)
     if row['WF & PP'] == True:
         add_to_sub_contact_list(row, wf_and_pp_list)
-        
+
+
+    
+
+df_cp_list = pandas.DataFrame.from_dict(cp_list)
+
+df_cp_list.to_csv(".\CP\cp_contact_list.csv", sep=',', encoding='utf=8')
 
 
 
