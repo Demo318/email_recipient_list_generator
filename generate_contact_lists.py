@@ -11,8 +11,33 @@
 
 import pandas 
 
-print('lol')
 
 master_contact_list = pandas.read_excel('Master Contact List.xlsx', sheet_name='Sheet1')
 
-print(master_contact_list)
+cp_list = {'First':[], 'Last':[], 'Company':[], 'Email':[]}
+it_list = {'First':[], 'Last':[], 'Company':[], 'Email':[]}
+voice_list = {'First':[], 'Last':[], 'Company':[], 'Email':[]}
+wf_and_pp_list = {'First':[], 'Last':[], 'Company':[], 'Email':[]}
+
+def add_to_sub_contact_list(row, target_list):
+    target_list['First'].append(row['First'])
+    target_list['Last'].append(row['Last'])
+    target_list['Company'].append(row['Company'])
+    target_list['Email'].append(row['Email'])
+
+for index, row in master_contact_list.iterrows():
+    if row['CP'] == True:
+        add_to_sub_contact_list(row, cp_list)
+    if row['IT'] == True:
+        add_to_sub_contact_list(row, it_list)
+    if row['Voice'] == True:
+        add_to_sub_contact_list(row, voice_list)
+    if row['WF & PP'] == True:
+        add_to_sub_contact_list(row, wf_and_pp_list)
+        
+
+
+
+# Export .csv
+
+# Convert .csv to .mdb
