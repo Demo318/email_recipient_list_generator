@@ -14,6 +14,13 @@ import pandas
 
 master_contact_list = pandas.read_excel('Master Contact List.xlsx', sheet_name='Sheet1')
 
+for column_name in master_contact_list.columns[5:]:
+    print(column_name)
+
+# Iterate through columns list.
+# Create new contact list
+#   If val type = Bool
+
 cp_list = {'First':[], 'Last':[], 'Company':[], 'Email':[]}
 it_list = {'First':[], 'Last':[], 'Company':[], 'Email':[]}
 voice_list = {'First':[], 'Last':[], 'Company':[], 'Email':[]}
@@ -25,7 +32,20 @@ def add_to_sub_contact_list(row, target_list):
     target_list['Company'].append(row['Company'])
     target_list['Email'].append(row['Email'])
 
+# 1. Identify if item == True
+# 2. grab category column header of True item
+# 3. Check if library for category exsists
+#     if so add row info to existing category
+#     if not, create new library and add this as first item
+# 4. do for all of them
+# 6. make data tables from new libraries
+# 7. export all libraries to own csv files
+
+
+
 for index, row in master_contact_list.iterrows():
+    #for item in row:
+        # print(row[0])
     if row['CP'] == True:
         add_to_sub_contact_list(row, cp_list)
     if row['IT'] == True:
@@ -34,8 +54,6 @@ for index, row in master_contact_list.iterrows():
         add_to_sub_contact_list(row, voice_list)
     if row['WF & PP'] == True:
         add_to_sub_contact_list(row, wf_and_pp_list)
-
-
     
 
 df_cp_list = pandas.DataFrame.from_dict(cp_list)
