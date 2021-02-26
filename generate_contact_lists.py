@@ -1,13 +1,6 @@
-﻿# xl_file = pd.ExcelFile(file_name)
-
-# dfs = {sheet_name: xl_file.parse(sheet_name) 
-#           for sheet_name in xl_file.sheet_names}
-
-# export to csv: https://stackoverflow.com/questions/53767845/how-do-i-export-a-pandas-dataframe-to-microsoft-access
-
-# convert csv to mdb (for Word to read): https://stackoverflow.com/questions/3627469/how-to-create-a-mdb-file-from-a-csv-file-in-python
-
-# Other good Pandas excel reference: https://www.journaldev.com/33306/pandas-read_excel-reading-excel-file-in-python
+﻿# A process to take one master list of contacts and
+# generate sub-lists in individal CSV files to be used
+# with Microsoft Word's mail merge feature.
 
 import pandas
 from classes.ContactList import ContactList
