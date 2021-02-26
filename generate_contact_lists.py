@@ -9,13 +9,18 @@
 
 # Other good Pandas excel reference: https://www.journaldev.com/33306/pandas-read_excel-reading-excel-file-in-python
 
-import pandas 
+import pandas
+from classes.ContactList import ContactList
 
 
 master_contact_list = pandas.read_excel('Master Contact List.xlsx', sheet_name='Sheet1')
 
+contact_lists = []
+
 for column_name in master_contact_list.columns[5:]:
-    print(column_name)
+    contact_lists.append(ContactList(column_name))
+
+print(contact_lists)
 
 # Iterate through columns list.
 # Create new contact list
