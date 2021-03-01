@@ -9,7 +9,7 @@ class ContactList:
         self.contacts_library = {
             'First': [], 'Last': [], 'Company': [],
             'Email': [], 'BCC': []
-            }
+        }
 
     def add_contact(self, row):
         for index, item in enumerate(self.contacts_library):
@@ -18,7 +18,7 @@ class ContactList:
     def dataframe(self):
         return pandas.DataFrame.from_dict(
             self.contacts_library
-            )
+        )
 
     def filename_string(self):
         return r".\\contact_lists\\" + self.list_name + ".csv"
