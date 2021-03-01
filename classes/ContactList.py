@@ -1,13 +1,14 @@
-﻿import pandas
+import pandas
 
-class ContactList: 
+
+class ContactList:
 
     def __init__(self, category_name):
         self.category_name = category_name
         self.list_name = category_name + "_list"
         self.contacts_library = {
-            'First':[],'Last':[], 'Company':[],
-            'Email':[], 'BCC':[]
+            'First': [], 'Last': [], 'Company': [],
+            'Email': [], 'BCC': []
             }
 
     def add_contact(self, row):
@@ -20,4 +21,4 @@ class ContactList:
             )
 
     def filename_string(self):
-        return ".\contact_lists\\" + self.list_name +".csv"
+        return r".\\contact_lists\\" + self.list_name + ".csv"
