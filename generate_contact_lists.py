@@ -1,6 +1,8 @@
-﻿# A process to take one master list of contacts and
-# generate sub-lists in individal CSV files to be used
-# with Microsoft Word's mail merge feature.
+﻿"""
+A process to take one master list of contacts and
+generate sub-lists in individal CSV files to be used
+with Microsoft Word's mail merge feature.
+"""
 
 import pandas
 from classes.ContactList import ContactList
@@ -11,7 +13,9 @@ master_contact_list = pandas.read_excel(
     sheet_name='Sheet1'
 )
 
+
 contact_lists = {}
+
 
 for column_name in master_contact_list.columns[5:]:
     contact_lists[column_name] = ContactList(column_name)
@@ -33,5 +37,18 @@ for list_name in contact_lists:
         encoding='utf=8'
     )
 
+bcc_list = {'Email': [], 'BCC': []}
 
-# TODO: Generate master email:BCC list
+for index, row in master_contact_list.iterrows():
+    bcc_list['Email'].append(row['Email'])
+    bcc_list['BCC'].append(row['BCC'])
+
+bcc_list_dframe = pandas.DataFrame.from_dict(
+    bcc_list
+)
+
+bcc_list_dframe.to_csv(
+    r".\\contact_lists\\sf_bcc_addresses.csv",
+    sep=",",
+    encoding='utf-8'
+)
